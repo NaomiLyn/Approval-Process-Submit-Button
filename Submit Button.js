@@ -44,11 +44,11 @@ alert(result);
 } 
 } 
 else{
-alert('This deal is an EBA and will require Corporate DRB Approval. Please engage with Deal Desk')
-}
+alert('This deal is an EBA and will require Corporate DRB Approval. Please engage with Deal Desk');
 }
 else{ 
 alert('Cannot submit an activity which is in Pending Approval status'); 
+}
 }
 }
 //if ('{!Consulting_Activities__c.Standard_Non_Standard_Response__c}'=='Non Standard' && 
