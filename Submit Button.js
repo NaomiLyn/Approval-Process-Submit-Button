@@ -6,8 +6,13 @@ var __sfdcSessionId = '{!GETSESSIONID()}';
 
 if('{!Consulting_Activities__c.Activity_Status__c}'!='Pending Approval'){ 
 var activityId ='{!Consulting_Activities__c.Id}'; 
-//var optyAmount ='{!Consulting_Activities__c.Opportunity_Value__c}'; 
 var optyAmount=''; 
+
+if ('{!Consulting_Activities__c.Standard_Non_Standard_Response__c}'=='Non Standard' && 
+'{!NOT ISPICKVAL(Opportunity.DRB_Approval_Status__c, 'Approved - Email')}' || 
+'{!NOT ISPICKVAL(Opportunity.DRB_Approval_Status__c, 'Approved - Meeting')}'){ 
+var activityId ='{!Consulting_Activities__c.Id}'; 
+var optyAmount='';
 
 if('{!Consulting_Activities__c.RecordType}'=='Contract' && '{!Consulting_Activities__c.Sub_Activity__c}'=='Sub-Contractor Task Order (STO)'){ 
 optyAmount='{!Consulting_Activities__c.STO_Cost__c}'; 
@@ -38,12 +43,15 @@ location.reload();
 alert(result); 
 } 
 } 
-} 
+else{
+alert('This deal is an EBA and will require Corporate DRB Approval. Please engage with Deal Desk')
+}
+}
 else{ 
 alert('Cannot submit an activity which is in Pending Approval status'); 
-} 
-
-if ('{!Consulting_Activities__c.Standard_Non_Standard_Response__c}'=='Non Standard' && 
-'{!NOT ISPICKVAL(Opportunity.DRB_Approval_Status__c, 'Approved - Email')}' || 
-'{!NOT ISPICKVAL(Opportunity.DRB_Approval_Status__c, 'Approved - Meeting')}') 
-{alert ("This deal is non-standard and will require Corporate DRB approval. Please engage with Deal Desk")};
+}
+}
+//if ('{!Consulting_Activities__c.Standard_Non_Standard_Response__c}'=='Non Standard' && 
+//'{!NOT ISPICKVAL(Opportunity.DRB_Approval_Status__c, 'Approved - Email')}' || 
+//'{!NOT ISPICKVAL(Opportunity.DRB_Approval_Status__c, 'Approved - Meeting')}') 
+//{alert ("This deal is non-standard and will require Corporate DRB approval. Please engage with Deal Desk")};
