@@ -50,8 +50,3 @@ else{
 alert('Cannot submit an activity which is in Pending Approval status'); 
 }
 }
-}
-//if ('{!Consulting_Activities__c.Standard_Non_Standard_Response__c}'=='Non Standard' && 
-//'{!NOT ISPICKVAL(Opportunity.DRB_Approval_Status__c, 'Approved - Email')}' || 
-//'{!NOT ISPICKVAL(Opportunity.DRB_Approval_Status__c, 'Approved - Meeting')}') 
-//{alert ("This deal is non-standard and will require Corporate DRB approval. Please engage with Deal Desk")};
